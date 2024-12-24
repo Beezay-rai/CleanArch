@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
-using Application.Interfaces.Common;
+using Domain.Common;
 using Domain.Entities.ToDo;
+using Persistence.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,18 @@ namespace Persistence.Repositories.Common
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public IToDoRepository ToDoRepository => throw new NotImplementedException();
+        private readonly MyAppDbContext _context;
+        private readonly IToDoRepository _toDoRepo;
+        public UnitOfWork(MyAppDbContext context ,IToDoRepository todoRepo ) 
+        {
+            _context = context;
+            _toDoRepo = todoRepo;
+        }
+        public IToDoRepository ToDoRepository => _toDoRepo;
 
         public int SaveChanges()
         {
-            throw new NotImplementedException();
+            return _context.SaveChanges();
         }
     }
 }

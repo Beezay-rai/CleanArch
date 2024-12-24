@@ -6,7 +6,7 @@ namespace Persistence.Data
     {
         public MyAppDbContext(DbContextOptions options) : base(options)
         {
-
+            
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

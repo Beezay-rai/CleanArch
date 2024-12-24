@@ -21,7 +21,6 @@ namespace Persistence.Repositories.Common
         public async Task Add(T entity)
         {
             await _context.AddAsync(entity);
-            throw new NotImplementedException();
         }
 
         public async Task Delete(Guid Id)

@@ -1,13 +1,11 @@
 ﻿using Application.DTOs.ToDo;
+using Application.Interfaces;
 using Application.Interfaces.Common;
 using Domain.Common;
 using Domain.Entities.ToDo;
+using LanguageExt;
+using LanguageExt.Common;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.ToDos.Commands
 {
@@ -18,12 +16,14 @@ namespace Application.Features.ToDos.Commands
     }
     internal class CreateToDoCommandHandler : IRequestHandler<CreateToDoCommand, Result<Guid>>
     {
+        private readonly IToDoRepository _repo;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ToDoValidator _validator;
-        public CreateToDoCommandHandler(IUnitOfWork unitOfWork, ToDoValidator validator)
+        public CreateToDoCommandHandler(IToDoRepository repo, ToDoValidator validator,IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork;
+            _repo = repo;
             _validator = validator;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<Result<Guid>> Handle(CreateToDoCommand request, CancellationToken cancellationToken)
@@ -32,19 +32,33 @@ namespace Application.Features.ToDos.Commands
 
             if (!check.IsValid)
             {
-                return Result<Guid>.Failure(new ToDoValidationError());
+                return new Result<Guid>(new MyValidationException("Validation Exception"));
             }
+            var random = new Random().Next(1, 2);
+            switch (random)
+            {
+                case 1:
+                    return new Result<Guid>(new Exception("Internal  Exception"));
+                default:
+                    break;
+
+            };
 
             var entity = ToDo.Create(request.model.Name, request.model.Description, request.model.DueDate);
 
-            await _unitOfWork.ToDoRepository.Add(entity);
+            await _repo.Add(entity);
              _unitOfWork.SaveChanges();
-            throw new NotImplementedException();
+            return entity.Id;
+        }
+
+    }
+
+    public class MyValidationException : Exception
+    {
+        public MyValidationException(string message) : base(message)
+        {
         }
     }
 
-    public record ToDoValidationError() : Error("","")
-    {
-       
-    }
+
 }

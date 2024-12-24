@@ -5,6 +5,6 @@
         public Guid Id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
-        public string due_date { get; set; }
+        public DateTime due_date { get; set; }
     }
 }

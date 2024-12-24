@@ -14,6 +14,7 @@ namespace Application.Services
         public AutoMapperProfile()
         {
             CreateMap<ToDoDTO,ToDo>().ReverseMap();
+            CreateMap<IEnumerable<ToDoDTO>, IEnumerable<ToDo>>().ReverseMap();
         }
 
     }
