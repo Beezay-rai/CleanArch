@@ -9,6 +9,6 @@ namespace Domain.Common
 {
     public interface IUnitOfWork
     {
-        public int SaveChanges();
+        public Task<int> SaveChangesAsync(CancellationToken token);
     }
 }

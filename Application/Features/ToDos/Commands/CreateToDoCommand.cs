@@ -34,7 +34,7 @@ namespace Application.Features.ToDos.Commands
             {
                 return new Result<Guid>(new MyValidationException("Validation Exception"));
             }
-            var random = new Random().Next(1, 2);
+            var random = new Random().Next(1, 3);
             switch (random)
             {
                 case 1:
@@ -47,7 +47,7 @@ namespace Application.Features.ToDos.Commands
             var entity = ToDo.Create(request.model.Name, request.model.Description, request.model.DueDate);
 
             await _repo.Add(entity);
-             _unitOfWork.SaveChanges();
+            await _unitOfWork.SaveChangesAsync(cancellationToken);
             return entity.Id;
         }
 

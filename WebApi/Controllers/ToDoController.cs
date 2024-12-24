@@ -49,6 +49,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<Results<Ok<Guid>, BadRequest<ProblemDetails>, ProblemHttpResult>> Post(ToDoModel model)
         {
+
             var result = await _mediator.Send(new CreateToDoCommand()
             {
                 model =new CreateToDoDTO()

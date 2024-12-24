@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "mK6jezzT1eQ=",
+  "dgSpecHash": "jhYkxOG0pGA=",
   "success": true,
   "projectFilePath": "C:\\Users\\OnePoint-bijay\\source\\repos\\ToDoSystem\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\mediatr\\12.4.1\\mediatr.12.4.1.nupkg.sha512",
+    "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
+    "C:\\Users\\OnePoint-bijay\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -10,3 +10,4 @@ C:\Users\OnePoint-bijay\source\repos\ToDoSystem\Domain\obj\Debug\net8.0\Domain.d
 C:\Users\OnePoint-bijay\source\repos\ToDoSystem\Domain\obj\Debug\net8.0\refint\Domain.dll
 C:\Users\OnePoint-bijay\source\repos\ToDoSystem\Domain\obj\Debug\net8.0\Domain.pdb
 C:\Users\OnePoint-bijay\source\repos\ToDoSystem\Domain\obj\Debug\net8.0\ref\Domain.dll
+C:\Users\OnePoint-bijay\source\repos\ToDoSystem\Domain\obj\Debug\net8.0\Domain.csproj.AssemblyReference.cache

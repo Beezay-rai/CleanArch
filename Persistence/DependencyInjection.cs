@@ -21,8 +21,7 @@ namespace Persistence
             });
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IToDoRepository, ToDoRepository>();
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
-
+            services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<MyAppDbContext>());
             return services;
         }
     }

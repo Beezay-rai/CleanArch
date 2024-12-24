@@ -325,6 +325,9 @@
       "System.Threading.Tasks.Extensions/4.5.4": {},
       "System.ValueTuple/4.5.0": {},
       "Domain/1.0.0": {
+        "dependencies": {
+          "MediatR": "12.4.1"
+        },
         "runtime": {
           "Domain.dll": {}
         }

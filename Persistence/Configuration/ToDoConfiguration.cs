@@ -23,6 +23,7 @@ namespace Persistence.Configuration
 
             builder.Property(x => x.Status)
                 .HasColumnType("varchar")
+                .HasMaxLength(50)
                 .IsRequired();
             builder.Property(x => x.DueDate)
                 .IsRequired()
